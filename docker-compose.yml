@@ -1,0 +1,24 @@
+name: openpath
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: openpath-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: openpath
+      POSTGRES_PASSWORD: openpath
+      POSTGRES_DB: openpath
+    ports:
+      - "5432:5432"
+    volumes:
+      - openpath-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openpath -d openpath"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+
+volumes:
+  openpath-postgres:
