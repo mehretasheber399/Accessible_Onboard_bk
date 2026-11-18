@@ -139,7 +139,7 @@ function done(
     intent,
     reply,
     fromCorpus,
-    source: fromCorpus ? LEYU_DATASET : 'openpath',
+    source: fromCorpus ? LEYU_DATASET : 'allways',
   };
 }
 
@@ -179,7 +179,7 @@ function productReply(intent: AmharicReply['intent'], language: ReplyLanguage, j
 
 const AMHARIC: Record<string, string> = {
   greet:
-    'ሰላም፣ እንኳን ደህና መጡ። እኔ የኦፕንፓዝ ረዳት ነኝ። ስለ ሥራ፣ ስለ ማመልከቻ እና ስለ መለያ በአዲስ አበባ አማርኛ እረዳዎታለሁ። ምን ልንገርዎ?',
+    'ሰላም፣ እንኳን ደህና መጡ። እኔ የAllWays ረዳት ነኝ። ስለ ሥራ፣ ስለ ማመልከቻ እና ስለ መለያ በአዲስ አበባ አማርኛ እረዳዎታለሁ። ምን ልንገርዎ?',
   thanks: 'አመሰግናለሁ። ሌላ የሚያስፈልግዎት ነገር ካለ እዚህ አለሁ።',
   help: 'ስለ ክፍት ሥራ፣ ስለ አንድ ሥራ ዝርዝር፣ ስለ ማመልከቻ፣ ስለ መለያ እና ስለ ተደራሽነት ድጋፍ ልነግርዎ እችላለሁ። በተጨማሪም ስለ ቤተሰብ፣ ጎረቤት ወይም የአዲስ አበባ ኑሮ ቢጠይቁ፣ ከሌዩ ንግግር በተፈጥሯዊ አማርኛ እመልሳለሁ።',
   apply:
@@ -193,7 +193,7 @@ const AMHARIC: Record<string, string> = {
 
 const ENGLISH: Record<string, string> = {
   greet:
-    'Hello, and welcome. I am the OpenPath assistant. I can help with jobs, applications, and accounts. If you write in Amharic, I answer in everyday Addis Ababa speech. What should I explain?',
+    'Hello, and welcome. I am the AllWays assistant. I can help with jobs, applications, and accounts. If you write in Amharic, I answer in everyday Addis Ababa speech. What should I explain?',
   thanks: 'Thank you. I am here if you need something else.',
   help: 'I can explain open jobs, one job in detail, how to apply, accounts, and accessibility support. Questions about daily life in Addis Ababa can be answered from the Leyu conversations, in natural Amharic.',
   apply:

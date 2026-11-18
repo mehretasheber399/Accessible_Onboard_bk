@@ -28,6 +28,6 @@ export class AmharicReplyResponseDto {
   @ApiProperty({ example: false })
   fromCorpus!: boolean;
 
-  @ApiProperty({ example: 'openpath' })
+  @ApiProperty({ example: 'allways' })
   source!: string;
 }

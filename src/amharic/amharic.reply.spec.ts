@@ -18,7 +18,8 @@ describe('Addis Ababa Amharic replies', () => {
     expect(reply.intent).toBe('greet');
     expect(reply.fromCorpus).toBe(false);
     expect(reply.reply).toContain('እንኳን ደህና መጡ');
-    expect(reply.reply).toContain('ኦፕንፓዝ');
+    expect(reply.reply).toContain('AllWays');
+    expect(reply.source).toBe('allways');
   });
 
   it('lists open jobs in Amharic', () => {
