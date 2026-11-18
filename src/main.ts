@@ -18,7 +18,7 @@ async function bootstrap(): Promise<void> {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('OpenPath API')
     .setDescription(
-      'HTTP API for AllWays jobs, career applications, and accounts.',
+      'HTTP API for AllWays jobs, career applications, accounts, and Addis Ababa Amharic replies.',
     )
     .setVersion('0.1.0')
     .build();

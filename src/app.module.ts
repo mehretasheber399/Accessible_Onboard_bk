@@ -2,6 +2,7 @@ import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_PIPE } from '@nestjs/core';
 import { AccountsModule } from './accounts/accounts.module';
+import { AmharicModule } from './amharic/amharic.module';
 import { ApplicationsModule } from './applications/applications.module';
 import { validateEnv } from './config/env.schema';
 import { HealthModule } from './health/health.module';
@@ -18,6 +19,7 @@ import { PrismaModule } from './prisma/prisma.module';
     PrismaModule,
     HealthModule,
     AccountsModule,
+    AmharicModule,
     ApplicationsModule,
     JobsModule,
   ],

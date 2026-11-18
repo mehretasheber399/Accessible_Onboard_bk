@@ -34,12 +34,15 @@ PostgreSQL 16 listens on `localhost:5432`. The API listens on port `3001` so the
 | POST | `/api/v1/jobs/:id/applications` | Career gateway application. Body: `name`, `phone`, `experience`. |
 | GET | `/api/v1/jobs/:id/applications` | Applications saved for that job. |
 | POST | `/api/v1/applications` | Full application assistant submission. Returns a reference such as `OP-JOB-4821`. |
+| POST | `/api/v1/amharic/reply` | Understand a message and answer in spoken Addis Ababa Amharic. Body: `message`. |
 | GET | `/api/docs` | Swagger UI |
 | GET | `/api/docs-json` | OpenAPI document |
 
 `supports` values are `screen`, `step`, `flexible`, `written`, and `sign`. Passwords are stored with scrypt and are not returned. The four starter jobs are inserted the first time the API reaches PostgreSQL.
 
-The AllWays frontend proxies `/api/v1` to this process. Speech routes `/api/tts` and `/api/stt` stay on the frontend dev server.
+The AllWays frontend proxies `/api/v1` to this process. Speech routes `/api/tts` and `/api/stt` stay on the frontend dev server. Send recognized speech text to `/api/v1/amharic/reply`.
+
+Amharic replies use the spoken Addis Ababa dialect. Career answers (jobs, applications, accounts, accessibility) are written in that everyday register. Other questions are answered from the Leyu Addis Ababa transcripts when the wording matches: [gheero-Leyu/leyu-amharic-addis-ababa-dialect](https://huggingface.co/datasets/gheero-Leyu/leyu-amharic-addis-ababa-dialect), CC BY 4.0. The API stores those transcripts only, not the audio. When a reply is taken from the corpus, `fromCorpus` is true and `source` names the dataset.
 
 Healthy response:
 
@@ -83,6 +86,7 @@ src/health/                 GET /api/v1/health
 src/accounts/               register and sign-in
 src/jobs/                   job board and employer posts
 src/applications/           career and full applications
+src/amharic/                Addis Ababa Amharic understanding and replies
 prisma/schema.prisma        accounts, jobs, applications
 docker-compose.yml          PostgreSQL 16
 ```
