@@ -144,9 +144,19 @@ function done(
 }
 
 function corpusReply(match: { text: string }): AmharicReply {
-  const text = match.text.trim();
-  const reply = text.startsWith('አዎ') ? text : `አዎ። ${text}`;
-  return done('am', 'corpus', reply, true);
+  return done('am', 'corpus', asConversation(match.text), true);
+}
+
+function asConversation(text: string): string {
+  let line = text.replace(/\s+/g, ' ').trim();
+  if (line.length > 240) {
+    const window = line.slice(0, 240);
+    const pause = Math.max(window.lastIndexOf('፣'), window.lastIndexOf('፤'));
+    line = (pause > 90 ? line.slice(0, pause) : window).replace(/[፣፤\s]+$/, '');
+    if (!/[።!?]$/.test(line)) line = `${line}።`;
+  }
+  if (line.startsWith('አዎ') || line.startsWith('እሺ') || line.startsWith('በእርግጥ')) return line;
+  return `እሺ። ${line}`;
 }
 
 function matchIntent(folded: string, tokenCount: number): AmharicReply['intent'] | null {

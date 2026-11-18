@@ -68,6 +68,8 @@ describe('Addis Ababa Amharic replies', () => {
 
     expect(reply.intent).toBe('corpus');
     expect(reply.fromCorpus).toBe(true);
+    expect(reply.reply.startsWith('እሺ') || reply.reply.startsWith('አዎ')).toBe(true);
+    expect(reply.reply.length).toBeLessThan(320);
     expect(reply.source).toBe('gheero-Leyu/leyu-amharic-addis-ababa-dialect');
     expect(reply.reply).toContain('እንረዳዳለን');
   });
